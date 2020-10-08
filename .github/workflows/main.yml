@@ -20,4 +20,9 @@ jobs:
       run:  |
             cd paho.mqtt.c
             make -j
-            sudo make install          
+            sudo make install
+
+    - name: run subscriber
+      run: |
+            paho_c_sub -t test_topic -i id1
+                      
