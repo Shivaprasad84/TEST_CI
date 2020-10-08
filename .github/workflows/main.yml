@@ -22,12 +22,14 @@ jobs:
             make -j
             sudo make install
 
-    - name: build subscriber
+    - name: build subscriber and publisher
       run: |
             cd paho.mqtt.c/src/samples
             gcc MQTTAsync_subscribe.c -o MQTTAsync_subscribe -lpaho-mqtt3as
+            gcc MQTTAsync_publish.c -o MQTTAsync_publish -lpaho-mqtt3as
       
-    - name: run subscriber
+    - name: run subscriber and publisher
       run: |
            cd paho.mqtt.c/src/samples
            ./MQTTAsync_subscribe 
+           ./MQTTAsync_publish
